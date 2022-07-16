@@ -1,0 +1,24 @@
+.title {
+  @apply text-center text-30px;
+  @apply font-roboto-medium;
+}
+
+// .input-form {
+//   @apply h-40px p-8px;
+//   @apply appearance-none border border-green-2;
+//   &:focus {
+//     @apply outline-none;
+//   }
+//   &:hover {
+//     @apply border-green-1;
+//   }
+// }
+// .from-login {
+//   @apply w-full;
+//   .form-email {
+//     @apply flex flex-col;
+//   }
+//   .form-password {
+//     @apply flex flex-col;
+//   }
+// }

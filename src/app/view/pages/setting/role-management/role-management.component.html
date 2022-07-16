@@ -1,0 +1,93 @@
+<tmt-app-subheader
+  [title1]="'Cài đặt'"
+  [title2]="'Quản lý role'"
+></tmt-app-subheader>
+<div class="container mat-card p-12px table-role">
+  <div class="row">
+    <div class="col-lg-5 col-12">
+      <div class="relative">
+        <mat-icon class="absolute top-2 left-2">search</mat-icon>
+        <!-- keyUp là bắt sự kiện ng dùng nhập vào bán phím -->
+        <input
+          (keyup)="keyUp.next($any($event.target).value)"
+          placeholder="Nhập tìm kiếm..."
+          class="input-search"
+        />
+      </div>
+    </div>
+  </div>
+  <mat-table [dataSource]="lstRoles">
+    <ng-container matColumnDef="1">
+      <mat-header-cell *matHeaderCellDef>STT</mat-header-cell>
+      <mat-cell *matCellDef="let element; let index = index">
+        <span matTooltip="{{ index }}">{{ index + 1 }}</span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="2">
+      <mat-header-cell *matHeaderCellDef>TÊN ROLE</mat-header-cell>
+      <mat-cell *matCellDef="let element; let index = index">
+        <span [matTooltip]="element.name">{{ element.name }}</span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="3">
+      <mat-header-cell *matHeaderCellDef>NGÀY TẠO</mat-header-cell>
+      <mat-cell *matCellDef="let element; let index = index">
+        <span [matTooltip]="element.name">{{
+          element.created_at || "--"
+        }}</span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="4">
+      <mat-header-cell *matHeaderCellDef>
+        <button
+          matTooltip="Thêm"
+          (click)="openModalCreateEdit()"
+          class="text-blue-2 flex items-center"
+          mat-button
+        >
+          <mat-icon>add</mat-icon>Thêm
+        </button></mat-header-cell
+      >
+      <mat-cell *matCellDef="let element; let index = index">
+        <button
+          matTooltip="Chỉnh sửa"
+          (click)="openModalCreateEdit(element.id)"
+          mat-icon-button
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button><mat-icon>settings</mat-icon></button>
+        <button mat-icon-button><mat-icon>person_add</mat-icon></button>
+        <button
+          matTooltip="Xóa"
+          mat-icon-button
+          (click)="deleteRole(element.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['1', '2', '3', '4']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['1', '2', '3', '4']"></mat-row>
+  </mat-table>
+  <mat-paginator
+    *ngIf="lstRoles.length != 0"
+    (page)="paginatorChange($event)"
+    [pageSize]="pageSize"
+    [length]="total"
+    [hidePageSize]="false"
+    [pageSizeOptions]="[5, 10, 20, 100]"
+    [showFirstLastButtons]="true"
+  >
+  </mat-paginator>
+  <div
+    class="flex justify-center p-10px items-center font-roboto-regulart text-14px w-full"
+    *ngIf="lstRoles.length == 0"
+  >
+    <span>Không có dữ liệu</span>
+  </div>
+</div>

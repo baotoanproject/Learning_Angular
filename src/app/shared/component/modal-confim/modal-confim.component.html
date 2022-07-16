@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-12">
+    <div class="flex justify-between p-16px">
+      <span class="text-20px font-roboto-medium">{{ dataInject.title }}</span>
+      <mat-icon mat-dialog-close>close</mat-icon>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="flex items-center px-16px py-25px gap-6px">
+      <mat-icon style="color: red">error</mat-icon>
+      <span class="text-14px font-roboto-regular">{{
+        dataInject.content
+      }}</span>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="flex justify-end p-16px">
+      <button mat-button color="warn" (click)="dialogRef.close(true)">
+        Xóa
+      </button>
+      <button mat-dialog-close mat-button>Đóng</button>
+    </div>
+  </div>
+</div>

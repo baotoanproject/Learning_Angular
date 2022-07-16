@@ -1,0 +1,17 @@
+<div ngbDropdown class="d-inline-block">
+  <button
+    type="button"
+    class="btn btn-outline-primary"
+    id="dropdownBasic1"
+    ngbDropdownToggle
+  >
+    <mat-icon>people_outline</mat-icon>
+  </button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <div ngbNav class="nav-tabs" *ngFor="let item of menu">
+      <button routerLink="item.url" ngbDropdownItem>
+        {{ item.title }}
+      </button>
+    </div>
+  </div>
+</div>

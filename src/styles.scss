@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "../node_modules/ngx-toastr/toastr.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #f9f9fc !important;
+}
+.mat-card {
+  padding: 29px;
+  box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05) !important;
+}
+.mat-dialog-container {
+  padding: 0px !important;
+  overflow: unset !important;
+}
+
+.container {
+  @apply px-4;
+}
+.mat-icon {
+  color: #a9a9a9;
+}
+.input-custom {
+  &:focus {
+    outline: none;
+  }
+  border: 1px #cdcdcd solid;
+  border-radius: 4px;
+  @apply w-full;
+  @apply p-8px;
+}
+.input-search {
+  &:focus {
+    outline: none;
+  }
+  border: 1px #cdcdcd solid;
+  border-radius: 4px;
+  @apply w-full;
+  @apply py-8px pl-30px pr-8px;
+}
+.input-invalid {
+  border: 1px red solid;
+}
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";

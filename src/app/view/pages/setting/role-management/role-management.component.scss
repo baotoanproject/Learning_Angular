@@ -1,0 +1,22 @@
+.table-role {
+  table {
+    width: 100%;
+  }
+
+  .mat-column-1 {
+    padding-left: 0px;
+    flex: 0 0 9%;
+  }
+
+  .mat-column-2 {
+    flex: 0 0 40%;
+  }
+
+  .mat-column-3 {
+    flex: 0 0 26%;
+  }
+
+  .mat-column-4 {
+    flex: 0 0 25%;
+  }
+}

@@ -1,0 +1,49 @@
+<div class="grid grid-cols-12">
+  <div class="col-span-12 p-16px">
+    <div class="flex justify-between">
+      <span class="text-20px font-roboto-medium">{{ dataInject.title }}</span>
+      <mat-icon mat-dialog-close>close</mat-icon>
+    </div>
+  </div>
+  <div class="col-span-12 p-16px">
+    <form [formGroup]="formRole">
+      <span
+        [ngClass]="
+          formRole.controls.name.touched &&
+          formRole.controls.name.errors?.required
+            ? 'text-red'
+            : ''
+        "
+        class="text-14px font-roboto-regular"
+        >Tên Role <span class="text-red">*</span></span
+      >
+      <input
+        [ngClass]="
+          formRole.controls.name.touched &&
+          formRole.controls.name.errors?.required
+            ? 'input-invalid'
+            : ''
+        "
+        class="input-custom"
+        formControlName="name"
+        required="true"
+      />
+      <span
+        class="text-red text-12px font-roboto-regular"
+        *ngIf="
+          formRole.controls.name.touched &&
+          formRole.controls.name.errors?.required
+        "
+        >Tên Role là <span class="font-bold">bắt buộc *</span></span
+      >
+    </form>
+  </div>
+  <div class="col-span-12 p-16px">
+    <div class="flex justify-end gap-8px">
+      <button mat-button class="bg-blue-2 text-white" (click)="onSubmit()">
+        {{ dataInject.id ? "Lưu" : "Thêm" }}
+      </button>
+      <button mat-dialog-close mat-button>Đóng</button>
+    </div>
+  </div>
+</div>

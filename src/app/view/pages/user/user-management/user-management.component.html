@@ -1,0 +1,24 @@
+<div class="container shadow-lg p-3 mb-5 bg-body rounded">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">NAME</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of listUser; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.firstName }} {{ user.middleName }} {{ user.lastName }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="total"
+    (pageChange)="loadNext($event)"
+  ></ngb-pagination>
+</div>

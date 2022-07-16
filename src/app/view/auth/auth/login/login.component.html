@@ -1,0 +1,89 @@
+<form [formGroup]="loginForm">
+  <h1 class="title" style="font-family: roboto-black">Đăng Nhập</h1>
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <span
+      [ngClass]="
+        loginForm.controls.email.touched &&
+        loginForm.controls.email.errors?.required
+          ? 'text-red'
+          : ''
+      "
+      class="email"
+      style="font-family: roboto-black"
+      >Email <span class="text-red">*</span></span
+    >
+    <input
+      [ngClass]="
+        loginForm.controls.email.touched &&
+        loginForm.controls.email.errors?.required
+          ? 'input-invalid'
+          : ''
+      "
+      class="form-control"
+      placeholder="email"
+      type="text"
+      formControlName="email"
+      required="true"
+    />
+    <span
+      class="text-red text-12px font-roboto-regular"
+      *ngIf="
+        loginForm.controls.email.touched &&
+        loginForm.controls.email.errors?.required
+      "
+      >Email là <span class="font-bold">bắt buộc *</span></span
+    >
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <span
+      [ngClass]="
+        loginForm.controls.password.touched &&
+        loginForm.controls.password.errors?.required
+          ? 'text-red'
+          : ''
+      "
+      class="password"
+      style="font-family: roboto-black"
+      >Password <span class="text-red">*</span></span
+    >
+    <input
+      [ngClass]="
+        loginForm.controls.password.touched &&
+        loginForm.controls.password.errors?.required
+          ? 'input-invalid'
+          : ''
+      "
+      class="form-control"
+      placeholder="password"
+      type="password"
+      formControlName="password"
+      required="true"
+    />
+    <span
+      class="text-red text-12px font-roboto-regular"
+      *ngIf="
+        loginForm.controls.password.touched &&
+        loginForm.controls.password.errors?.required
+      "
+      >Password là <span class="font-bold">bắt buộc *</span></span
+    >
+  </div>
+
+  <!-- Submit button -->
+  <button
+    (click)="submit()"
+    type="submit"
+    style="font-family: roboto-black"
+    class="btn btn-primary btn-block mb-4"
+  >
+    Đăng nhập
+  </button>
+
+  <!-- Register buttons -->
+  <div class="text-center">
+    <p>Not a member? <a routerLink="/register">Register</a></p>
+  </div>
+</form>
